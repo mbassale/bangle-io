@@ -50,6 +50,7 @@ export function LandingPage() {
         <>
           <Button
             ariaLabel="new workspace"
+            testId="new-workspace-button"
             onPress={() => {
               dispatchSerialOperation({
                 name: CORE_OPERATIONS_NEW_WORKSPACE,
@@ -60,14 +61,7 @@ export function LandingPage() {
         </>
       }
     >
-      {workspaces.length !== 0 ? (
-        <RecentWorkspace
-          workspaces={workspaces}
-          onClickWsName={onClickWsName}
-        />
-      ) : (
-        <div className="mb-3">You do not have any workspaces</div>
-      )}
+      <RecentWorkspace workspaces={workspaces} onClickWsName={onClickWsName} />
     </CenteredBoxedPage>
   );
 }
@@ -84,7 +78,7 @@ function RecentWorkspace({
   });
 
   return (
-    <div className="mb-3" data-test="landing-page">
+    <div className="mb-3" data-test="landing-page" data-testid="workspace-list">
       <div className="flex flex-row mt-6">
         <h3 className="mr-1 leading-none text-l sm:text-xl lg:text-xl">
           Workspaces

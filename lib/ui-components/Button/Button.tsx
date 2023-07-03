@@ -28,6 +28,7 @@ export function Button({
   className = '',
   focus,
   id,
+  testId,
   isDisabled = false,
   isTouch = isTouchDevice,
   // auto will center if only one child is present
@@ -52,6 +53,7 @@ export function Button({
   className?: string;
   focus?: FocusType;
   id?: string;
+  testId?: string;
   isDisabled?: boolean;
   isTouch?: boolean;
   justifyContent?: React.CSSProperties['justifyContent'] | 'auto';
@@ -99,6 +101,7 @@ export function Button({
   return (
     <button
       ref={ref}
+      data-testid={testId}
       {...useButtonStyleProps({
         elementProps,
         leftIcon,
